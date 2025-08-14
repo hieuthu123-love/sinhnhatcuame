@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Hoa sen 2D – Mở đầu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Màn hình mở đầu -->
+    <div class="start-screen">
+        <h1>🎉 Chúc mừng sinh nhật Mẹ 💖</h1>
+        <button id="startBtn">Bắt đầu</button>
+    </div>
+
+    <div class="stage hidden">
+        <div class="caption">
+            <h1>Chúc mừng sinh nhật Mẹ 💖</h1>
+            <p>Hiệu ứng hoa sen 2D – từng cánh xuất hiện từ trái sang phải</p>
+        </div>
+
+        <div class="lotus-wrap">
+            <!-- SVG Hoa sen -->
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-label="Hoa sen 2D">
+        <defs>
+          <symbol id="petalShape" viewBox="0 0 100 100">
+            <path d="M50 20
+                     C 42 33, 36 46, 34 58
+                     C 33 64, 36 71, 50 80
+                     C 64 71, 67 64, 66 58
+                     C 64 46, 58 33, 50 20 Z" />
+          </symbol>
+
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff7ad9"/>
+            <stop offset="100%" stop-color="#ffa64d"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8fd3ff"/>
+            <stop offset="100%" stop-color="#c08bff"/>
+          </linearGradient>
+          <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#b9ff6a"/>
+            <stop offset="100%" stop-color="#33e1ff"/>
+          </linearGradient>
+          <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffd86b"/>
+            <stop offset="100%" stop-color="#ff6ab0"/>
+          </linearGradient>
+
+          <radialGradient id="core" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#fff7c2"/>
+            <stop offset="60%" stop-color="#ffd86b"/>
+            <stop offset="100%" stop-color="#ff8a00"/>
+          </radialGradient>
+        </defs>
+
+        <g id="lotus" transform="translate(0,6)">
+          <!-- Tầng cánh sau -->
+          <use href="#petalShape" class="petal" data-delay="0"  style="--r:-42deg" fill="url(#g2)" transform="rotate(-42,50,70) translate(0,6) scale(1.1)"/>
+          <use href="#petalShape" class="petal" data-delay="1"  style="--r:-28deg" fill="url(#g3)" transform="rotate(-28,50,70) translate(0,4) scale(1.12)"/>
+          <use href="#petalShape" class="petal" data-delay="2"  style="--r:-14deg" fill="url(#g4)" transform="rotate(-14,50,70) translate(0,2) scale(1.14)"/>
+          <use href="#petalShape" class="petal" data-delay="3"  style="--r:0deg"   fill="url(#g1)" transform="rotate(0,50,70)  translate(0,2) scale(1.16)"/>
+          <use href="#petalShape" class="petal" data-delay="4"  style="--r:14deg"  fill="url(#g2)" transform="rotate(14,50,70) translate(0,2) scale(1.14)"/>
+          <use href="#petalShape" class="petal" data-delay="5"  style="--r:28deg"  fill="url(#g3)" transform="rotate(28,50,70) translate(0,4) scale(1.12)"/>
+          <use href="#petalShape" class="petal" data-delay="6"  style="--r:42deg"  fill="url(#g4)" transform="rotate(42,50,70) translate(0,6) scale(1.1)"/>
+
+          <!-- Tầng giữa -->
+          <use href="#petalShape" class="petal" data-delay="7"  style="--r:-30deg" fill="url(#g1)" transform="rotate(-30,50,70) translate(0,-4) scale(.98)"/>
+          <use href="#petalShape" class="petal" data-delay="8"  style="--r:-15deg" fill="url(#g2)" transform="rotate(-15,50,70) translate(0,-6) scale(1)"/>
+          <use href="#petalShape" class="petal" data-delay="9"  style="--r:0deg"   fill="url(#g3)" transform="rotate(0,50,70)  translate(0,-8) scale(1.02)"/>
+          <use href="#petalShape" class="petal" data-delay="10" style="--r:15deg"  fill="url(#g4)" transform="rotate(15,50,70) translate(0,-6) scale(1)"/>
+          <use href="#petalShape" class="petal" data-delay="11" style="--r:30deg"  fill="url(#g1)" transform="rotate(30,50,70) translate(0,-4) scale(.98)"/>
+
+          <!-- Tầng trước -->
+          <use href="#petalShape" class="petal" data-delay="12" style="--r:-12deg" fill="url(#g2)" transform="rotate(-12,50,70) translate(0,-12) scale(.86)"/>
+          <use href="#petalShape" class="petal" data-delay="13" style="--r:0deg"   fill="url(#g3)" transform="rotate(0,50,70)  translate(0,-14) scale(.84)"/>
+          <use href="#petalShape" class="petal" data-delay="14" style="--r:12deg"  fill="url(#g4)" transform="rotate(12,50,70) translate(0,-12) scale(.86)"/>
+
+          <circle class="pulse" cx="50" cy="70" r="5.2" fill="url(#core)"/>
+        </g>
+      </svg>
+        </div>
+
+        <button class="replay" id="replayBtn" aria-label="Phát lại">Phát lại hiệu ứng</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
